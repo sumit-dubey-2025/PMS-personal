@@ -1,0 +1,267 @@
+@import 'tailwindcss';
+
+:root {
+  /* Brand palette */
+  --primary: #002d6a;
+  --primary-dark: #001942;
+  --primary-container: #1a3a6b;
+  --primary-light: #4a6fa5;
+  --on-primary: #ffffff;
+  --on-primary-container: #ffffff;
+
+  --secondary: #4ac6e9;
+  --secondary-dark: #0090b5;
+  --secondary-container: #d6f4fc;
+  --on-secondary: #002d6a;
+  --on-secondary-container: #002d6a;
+
+  --tertiary: #212121;
+  --tertiary-light: #4a4a4a;
+  --tertiary-container: #303030;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #ffffff;
+
+  /* Surface and background */
+  --background: #f9f9fc;
+  --on-background: #1a1c1e;
+  --surface: #f9f9fc;
+  --surface-bright: #f9f9fc;
+  --surface-dim: #d9dadd;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3f6;
+  --surface-container: #edeef1;
+  --surface-container-high: #e8e8eb;
+  --surface-container-highest: #e2e2e5;
+  --surface-inverse: #002d6a;
+
+  /* Text */
+  --on-surface: #212121;
+  --on-surface-variant: #4a4a4a;
+  --on-surface-muted: #8a8a8a;
+  --on-surface-inverse: #ffffff;
+
+  /* Outline and border */
+  --outline: #a0a0a8;
+  --outline-variant: #c4c6d2;
+  --outline-accent: #002d6a;
+
+  /* Semantic status */
+  --success: #1e8449;
+  --success-container: #d4efdf;
+  --warning: #e67e22;
+  --warning-container: #fef9e7;
+  --error: #c0392b;
+  --error-container: #fdedec;
+  --on-error: #ffffff;
+  --on-error-container: #c0392b;
+  --in-progress: #f39c12;
+  --missing: #e74c3c;
+
+  /* Legacy compat */
+  --primary-fixed: #d6f4fc;
+  --primary-fixed-dim: #4ac6e9;
+  --on-primary-fixed: #001942;
+  --on-primary-fixed-variant: #002d6a;
+  --secondary-fixed: #d6f4fc;
+  --secondary-fixed-dim: #4ac6e9;
+  --on-secondary-fixed: #001942;
+  --on-secondary-fixed-variant: #002d6a;
+  --tertiary-fixed: #e5e2e1;
+  --tertiary-fixed-dim: #c8c6c5;
+  --on-tertiary-fixed: #212121;
+  --on-tertiary-fixed-variant: #4a4a4a;
+  /* ── Typography scale (from PulsePerform-sumit globals.css) ── */
+  --font-size-xs: 0.75rem;
+  /* 12px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-lg: 1.125rem;
+  /* 18px */
+  --font-size-xl: 1.25rem;
+  /* 20px */
+  --font-size-2xl: 1.5rem;
+  /* 24px */
+  --font-size-3xl: 1.875rem;
+  /* 30px */
+  --font-size-4xl: 2.25rem;
+  /* 36px */
+
+  /* Label / caption sizes */
+  --font-size-label-xs: 0.625rem;
+  /* 10px  — section labels */
+  --font-size-label-sm: 0.6875rem;
+  /* 11px  — chips, badges */
+  --font-size-label-md: 0.75rem;
+  /* 12px  — table headers */
+  --font-size-body-sm: 0.8125rem;
+  /* 13px  — small body */
+  --font-size-body-md: 0.875rem;
+  /* 14px  — default body */
+  --font-size-body-lg: 1rem;
+  /* 16px  — large body */
+  --font-size-title-sm: 1rem;
+  /* 16px  — small titles */
+  --font-size-title-md: 1.125rem;
+  /* 18px  — medium titles */
+  --font-size-title-lg: 1.25rem;
+  /* 20px  — form headings */
+  --font-size-heading-sm: 1.5rem;
+  /* 24px  — section headings */
+  --font-size-heading-md: 1.875rem;
+  /* 30px  — page headings */
+  --font-size-heading-lg: 2.25rem;
+  /* 36px  — hero headings */
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.08em;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  /* 4px  */
+  --space-2: 0.5rem;
+  /* 8px  */
+  --space-3: 0.75rem;
+  /* 12px */
+  --space-4: 1rem;
+  /* 16px */
+  --space-5: 1.25rem;
+  /* 20px */
+  --space-6: 1.5rem;
+  /* 24px */
+  --space-8: 2rem;
+  /* 32px */
+  --space-10: 2.5rem;
+  /* 40px */
+  --space-12: 3rem;
+  /* 48px */
+  --space-16: 4rem;
+  /* 64px */
+
+  /* Border radius */
+  --radius-sm: 0.125rem;
+  /* 2px  */
+  --radius-md: 0.375rem;
+  /* 6px  */
+  --radius-lg: 0.5rem;
+  /* 8px  */
+  --radius-xl: 0.75rem;
+  /* 12px */
+  --radius-2xl: 1rem;
+  /* 16px */
+  --radius-3xl: 1.5rem;
+  /* 24px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.14);
+
+  /* Layout */
+  --navbar-height: 72px;
+  --sidebar-width: 256px;
+
+
+/* ── Field Label — change label styles from one place ────────── */
+--field-label-size: 0.625rem;
+--field-label-weight: 700;
+--field-label-spacing: 0.07em;
+--field-label-color: var(--on-surface-variant);
+--field-label-gap: 0.375rem;
+
+/* ── Input — change input styles from one place ──────────────── */
+--input-px: 1rem;
+--input-py: 0.75rem;
+--input-radius: 0.5rem;
+--input-font-size: 0.875rem;
+--input-bg: var(--surface-container-low);
+--input-border: var(--outline-variant);
+--input-focus: var(--secondary);}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-inverse: var(--surface-inverse);
+
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-container: var(--primary-container);
+  --color-primary-light: var(--primary-light);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--on-primary-fixed-variant);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary: var(--on-secondary);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-light: var(--tertiary-light);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--on-tertiary-fixed-variant);
+
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  --color-success: var(--success);
+  --color-success-container: var(--success-container);
+  --color-warning: var(--warning);
+  --color-warning-container: var(--warning-container);
+  --color-in-progress: var(--in-progress);
+  --color-missing: var(--missing);
+
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-outline-accent: var(--outline-accent);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-surface-muted: var(--on-surface-muted);
+  --color-on-surface-inverse: var(--on-surface-inverse);
+
+  --font-headline: var(--font-manrope), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}

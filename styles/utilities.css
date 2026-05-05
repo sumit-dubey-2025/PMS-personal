@@ -1,0 +1,42 @@
+.bg-mesh {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      at 0% 0%,
+      color-mix(in srgb, var(--primary) 7%, transparent) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 100% 0%,
+      color-mix(in srgb, var(--secondary) 12%, transparent) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 50% 100%,
+      color-mix(in srgb, var(--surface-container-low) 50%, transparent) 0px,
+      transparent 50%
+    );
+}
+
+.glass-card {
+  background: color-mix(in srgb, var(--surface-container-lowest) 82%, transparent);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--surface-container-lowest) 15%, transparent);
+}
+
+.shadow-ambient {
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--tertiary) 6%, transparent);
+}
+
+.shadow-ambient-lifted {
+  box-shadow: 0 16px 48px color-mix(in srgb, var(--tertiary) 8%, transparent);
+}
+
+.ghost-border {
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 20%, transparent);
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+}

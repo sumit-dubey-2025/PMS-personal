@@ -1,0 +1,69 @@
+/* ══════════════════════════════════════════════════════════════════
+   base.css — Global resets and typography defaults
+   All values reference tokens from tokens.css
+   ══════════════════════════════════════════════════════════════════ */
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:   var(--background);
+  color:        var(--on-surface);
+  font-family:  var(--font-body);
+  font-size:    var(--font-size-body-md);   /* 14px default */
+  line-height:  var(--line-height-normal);
+  font-weight:  var(--font-weight-regular);
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Headings ──────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family:  var(--font-headline);
+  font-weight:  var(--font-weight-bold);
+  line-height:  var(--line-height-tight);
+  color:        var(--on-surface);
+  margin:       0;
+}
+
+h1 { font-size: var(--font-size-heading-md);  font-weight: var(--font-weight-extrabold); }
+h2 { font-size: var(--font-size-heading-sm);  font-weight: var(--font-weight-bold); }
+h3 { font-size: var(--font-size-title-lg);    font-weight: var(--font-weight-bold); }
+h4 { font-size: var(--font-size-title-md);    font-weight: var(--font-weight-semibold); }
+h5 { font-size: var(--font-size-title-sm);    font-weight: var(--font-weight-semibold); }
+h6 { font-size: var(--font-size-body-lg);     font-weight: var(--font-weight-semibold); }
+
+/* ── Paragraph & body text ─────────────────────────────────────── */
+p { margin: 0; line-height: var(--line-height-relaxed); }
+
+small { font-size: var(--font-size-sm); }
+
+/* ── Links ─────────────────────────────────────────────────────── */
+a {
+  
+  text-decoration: none;
+  transition:      color 0.15s;
+}
+a:hover { color: var(--primary); }
+
+/* ── Form elements ─────────────────────────────────────────────── */
+input, select, textarea, button {
+  font-family: var(--font-body);
+  font-size:   var(--font-size-body-md);
+}
+
+button { cursor: pointer; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--outline); }
+
+/* ── Focus ring ────────────────────────────────────────────────── */
+:focus-visible {
+  outline:        2px solid var(--secondary);
+  outline-offset: 2px;
+}

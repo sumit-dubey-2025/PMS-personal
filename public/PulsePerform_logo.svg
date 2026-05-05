@@ -1,0 +1,60 @@
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#29B6D8"/>
+      <stop offset="100%" stop-color="#4DD4C4"/>
+    </linearGradient>
+    <linearGradient id="bar-grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4DD4C4" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#29B6D8" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="bar-grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4DD4C4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#29B6D8" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="bar-grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4DD4C4"/>
+      <stop offset="100%" stop-color="#29B6D8"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer decorative ring -->
+  <circle cx="132" cy="170" r="72" fill="none" stroke="url(#brand-grad)" stroke-width="1.5" opacity="0.3" style="fill:none;color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Inner ring -->
+  <circle cx="132" cy="170" r="56" fill="none" stroke="url(#brand-grad)" stroke-width="1" opacity="0.15" style="fill:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Icon circle bg -->
+  <circle cx="132" cy="170" r="60" fill="white" fill-opacity="0.12" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Bar chart -->
+  <rect x="98" y="188" width="14" height="20" rx="3" fill="url(#bar-grad1)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="120" y="175" width="14" height="33" rx="3" fill="url(#bar-grad2)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="142" y="157" width="14" height="51" rx="3" fill="url(#bar-grad3)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Pulse line -->
+  <polyline fill="none" stroke="url(#brand-grad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft-glow)" points="88,165  101,165  108,148  117,178  126,155  136,170  148,145  160,170  172,170" style="fill:none;color:rgb(0, 0, 0);stroke-width:2.8px;stroke-linecap:round;stroke-linejoin:round;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Peak dot -->
+  <circle cx="148" cy="145" r="4.5" fill="#29B6D8" filter="url(#soft-glow)" style="fill:rgb(41, 182, 216);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="148" cy="145" r="2.5" fill="#FFFFFF" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Wordmark: "Pulse" in brand navy, "Perform" in theme text -->
+  <text x="222" y="183" font-family="'Space Grotesk','DM Sans',sans-serif" font-weight="700" font-size="42px" letter-spacing="-1.5" fill="var(--color-text-primary)" style="fill:rgb(20, 20, 19);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Space Grotesk&quot;, &quot;DM Sans&quot;, sans-serif;font-size:42px;font-weight:700;text-anchor:start;dominant-baseline:auto">
+    <tspan fill="#1B3A6B" style="fill:rgb(27, 58, 107);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Space Grotesk&quot;, &quot;DM Sans&quot;, sans-serif;font-size:42px;font-weight:700;text-anchor:start;dominant-baseline:auto">Pulse</tspan><tspan style="fill:rgb(20, 20, 19);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Space Grotesk&quot;, &quot;DM Sans&quot;, sans-serif;font-size:42px;font-weight:700;text-anchor:start;dominant-baseline:auto">Perform</tspan>
+  </text>
+
+  <!-- Separator line -->
+  <line x1="224" y1="200" x2="624" y2="200" stroke="url(#brand-grad)" stroke-width="1" opacity="0.4" style="fill:rgb(0, 0, 0);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tagline -->
+  <text x="225" y="218" font-family="'DM Sans',sans-serif" font-weight="400" font-size="11.5px" letter-spacing="3.5" fill="var(--color-text-secondary)" style="fill:rgb(61, 61, 58);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Sans&quot;, sans-serif;font-size:11.5px;font-weight:400;text-anchor:start;dominant-baseline:auto">PERFORMANCE MANAGEMENT SYSTEM</text>
+
+  <!-- Decorative dots -->
+  <circle cx="224" cy="142" r="2.2" fill="#29B6D8" opacity="0.5" style="fill:rgb(41, 182, 216);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="235" cy="142" r="2.2" fill="#3BC8CC" opacity="0.3" style="fill:rgb(59, 200, 204);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="246" cy="142" r="2.2" fill="#4DD4C4" opacity="0.18" style="fill:rgb(77, 212, 196);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>
