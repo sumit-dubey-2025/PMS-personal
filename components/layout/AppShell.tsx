@@ -35,7 +35,7 @@ export default function AppShell({
       <Sidebar navItems={navItems} bottomItems={bottomItems} showSignOut={showSignOut} />
       <div className="flex min-w-0 flex-1 flex-col">
         <AppHeader user={user} userRoleLabel={userRoleLabel} />
-        <main className="flex-1 overflow-y-auto px-8 py-8">{children}</main>
+        <main className="flex-1 overflow-y-auto px-8">{children}</main>
       </div>
     </div>
   );
