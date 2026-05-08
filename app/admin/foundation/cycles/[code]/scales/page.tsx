@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import RatingScaleClient from './RatingScaleClient';
+import RatingScaleScreen from '@/components/cycles/RatingScaleScreen';
 
-export const metadata: Metadata = { title: 'Rating Scale Manager | PulsePerform' };
+export const metadata: Metadata = { title: 'Rating Scale | PulsePerform' };
 
 interface Props { params: Promise<{ code: string }> }
 
 export default async function RatingScalesPage({ params }: Props) {
   const { code } = await params;
-  return <RatingScaleClient cycleCode={code} />;
+  return <RatingScaleScreen cycleCode={code} />;
 }
