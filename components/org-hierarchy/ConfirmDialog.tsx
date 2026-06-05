@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Button } from '@/components/ui';
 import { AlertTriangle, Trash2, Archive, CheckCircle } from 'lucide-react';
 
 interface Props {
@@ -59,20 +60,22 @@ export function ConfirmDialog({ isOpen, title, message, confirmLabel, variant, i
 
         {/* Actions */}
         <div className="px-6 pb-6 flex gap-3">
-          <button
+          <Button
+            variant="secondary"
             onClick={onCancel}
             disabled={isLoading}
-            className="flex-1 px-4 py-2.5 rounded-xl border border-[var(--outline-variant)] border-opacity-50 text-[var(--on-surface)] text-sm font-semibold hover:bg-[var(--surface-container-low)] transition-colors disabled:opacity-50"
+            className="flex-1 px-4 py-2.5 rounded-xl"
           >
             Cancel
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="primary"
             onClick={onConfirm}
             disabled={isLoading}
-            className={`flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm disabled:opacity-50 ${confirmClass}`}
+            className={`flex-1 px-4 py-2.5 rounded-xl shadow-sm ${confirmClass}`}
           >
             {isLoading ? 'Please wait…' : confirmLabel}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

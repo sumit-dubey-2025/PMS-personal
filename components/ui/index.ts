@@ -7,4 +7,7 @@ export * from './Input';
 export * from './Logo';
 export * from './MicrosoftLoginButton';
 export * from './Select';
-export * from './Tooltip';
+export { Tooltip } from './Tooltip';
+export { Avatar } from './Avatar';
+export { SearchInput } from './SearchInput';
+export { Textarea } from './Textarea';

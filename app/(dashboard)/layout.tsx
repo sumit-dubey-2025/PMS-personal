@@ -25,15 +25,9 @@ function getDashboardNavItems(hasAdmin: boolean): NavItem[] {
       section: 'Foundation Setup',
     },
     {
-      label: 'Role Framework',
+      label: 'Job Level & Designation',
       icon: 'layers',
-      href: '/admin/foundation/roles',
-      section: 'Foundation Setup',
-    },
-    {
-      label: 'Competencies',
-      icon: 'list_alt',
-      href: '/admin/foundation/competencies',
+      href: '/admin/foundation/job-levels',
       section: 'Foundation Setup',
     },
     {

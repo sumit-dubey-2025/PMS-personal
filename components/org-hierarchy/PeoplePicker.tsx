@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { Avatar, Button } from '@/components/ui';
+import { Close } from '@/components/ui/Icons';
 import { Employee } from '@/types/employee';
 import { searchEmployees } from '@/lib/api/employees';
 
@@ -105,23 +107,22 @@ useEffect(() => {
       <div
         className={`flex items-center gap-3 bg-[var(--surface-container-low)] rounded-lg p-3 transition-all ${hasError ? 'ring-2 ring-red-500' : ''}`}
       >
-        <div className="w-9 h-9 rounded-full bg-[var(--primary)] flex items-center justify-center text-[var(--on-primary)] text-xs font-bold shrink-0">
-          {getInitials(value.name)}
-        </div>
+        <Avatar initials={getInitials(value.name)} size="md" />
         <div className="flex-1 min-w-0">
           <div className="text-sm font-semibold text-[var(--on-surface)] truncate">{value.name}</div>
           <div className="text-xs text-[var(--on-surface-variant)] truncate">
             {value.email} · {value.designation}
           </div>
         </div>
-        <button
+        <Button
+          variant="ghost"
           type="button"
           onClick={handleClear}
-          className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full hover:bg-[var(--surface-container-high)] text-[var(--on-surface-variant)] transition-colors"
+          className="shrink-0 w-6 h-6 p-0 flex items-center justify-center rounded-full"
           aria-label="Clear selection"
         >
-          <X size={14} />
-        </button>
+          <Close size={14} />
+        </Button>
       </div>
     );
   }
@@ -159,9 +160,7 @@ useEffect(() => {
                   onClick={() => handleSelect(emp)}
                   className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[var(--surface-container-low)] transition-colors text-left"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-[var(--on-primary)] text-xs font-bold shrink-0">
-                    {getInitials(emp.name)}
-                  </div>
+                  <Avatar initials={getInitials(emp.name)} size="sm" />
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-semibold text-[var(--on-surface)] truncate">{emp.name}</div>
                     <div className="text-xs text-[var(--on-surface-variant)] truncate">

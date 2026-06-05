@@ -48,7 +48,7 @@ export function Tooltip({ label, required = true, description }: TooltipProps) {
   return (
     <span className="relative inline-flex items-center align-middle">
       {required && (
-        <span className="text-red-500 mx-0.5 text-xs font-bold leading-none">*</span>
+        <span className="text-red-500 mx-0.5 text-sm font-bold leading-none">*</span>
       )}
       <button
         ref={btnRef}

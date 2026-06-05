@@ -46,6 +46,15 @@ export {
   // Edit modal
   Camera as PhotoCamera,
   Lock,
+
+  // Role Framework
+  Layers as RoleFramework,
+  GripVertical as DragHandle,
+  MoreHorizontal as MoreOptions,
+  Archive,
+  Download,
+  TableProperties as MatrixIcon,
+  Save as SaveIcon,
 } from 'lucide-react';
 
 // ─── Custom SVG Components ─────────────────────────────────────────────────────

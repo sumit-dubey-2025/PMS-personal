@@ -5,6 +5,7 @@ import { OrgNode } from '@/types/org-hierarchy';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { NodeItem } from './NodeItem';
+import { hierarchyMatrix } from '@/lib/hierarchyrules';
 
 interface Props {
   nodes: OrgNode[]; // Unused in flat approach, but kept for signature
@@ -12,10 +13,11 @@ interface Props {
   setNodes: React.Dispatch<React.SetStateAction<OrgNode[]>>;
   onNodeClick: (node: OrgNode) => void;
   onDeleteNode: (node: OrgNode) => void;
-  onDeactivateNode: (node: OrgNode) => void;
+  onDeactivateNode: (node: OrgNode, headcount: number) => void;
   onActivateNode: (node: OrgNode) => void;
   searchQuery: string;
   filterType: string;
+  headcountMap: Record<string, number>;
 }
 
 // Computes depth of every node by walking the parentNodeCode chain.
@@ -38,7 +40,7 @@ function computeNodeDepths(nodes: OrgNode[]): Map<string, number> {
   return cache;
 }
 
-export function FlatTree({ flatNodes, setNodes, onNodeClick, onDeleteNode, onDeactivateNode, onActivateNode, searchQuery, filterType }: Props) {
+export function FlatTree({ flatNodes, setNodes, onNodeClick, onDeleteNode, onDeactivateNode, onActivateNode, searchQuery, filterType, headcountMap }: Props) {
   // flattenTree in OrgTreeBoard already produces correct DFS order via tree traversal.
   // Use flatNodes directly; no re-sort needed.
   const [activeItems, setActiveItems] = useState<OrgNode[]>(flatNodes);
@@ -49,7 +51,23 @@ export function FlatTree({ flatNodes, setNodes, onNodeClick, onDeleteNode, onDea
   useEffect(() => {
     setActiveItems(flatNodes);
   }, [flatNodes]);
+const calculateHeadcount = (node: OrgNode | null): number => {
+  if (!node) return 0;
 
+  const selfCount = headcountMap[node.id] ?? 0;
+
+  if (!node.children || node.children.length === 0) {
+    return selfCount;
+  }
+
+  return (
+    selfCount +
+    node.children.reduce(
+      (sum, child) => sum + calculateHeadcount(child),
+      0
+    )
+  );
+};
   // Precompute node depths and a by-id lookup once per activeItems change.
   const depthMap = useMemo(() => computeNodeDepths(activeItems), [activeItems]);
   const nodeById = useMemo(
@@ -70,18 +88,36 @@ export function FlatTree({ flatNodes, setNodes, onNodeClick, onDeleteNode, onDea
     else newSet.add(id);
     setExpandedIds(newSet);
   };
-
+ 
   const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-    if (over && active.id !== over.id) {
-      setActiveItems((items) => {
-        const oldIndex = items.findIndex((i) => i.id === active.id);
-        const newIndex = items.findIndex((i) => i.id === over.id);
-        return arrayMove(items, oldIndex, newIndex);
-      });
-      // Here you'd fire the POST /move optimistic update
-    }
-  };
+  const { active, over } = event;
+
+  if (!over || active.id === over.id) return;
+
+  const draggedNode = nodeById.get(active.id as string);
+  const targetNode = nodeById.get(over.id as string);
+
+  // 🚫 BLOCK if either node is inactive
+  if (draggedNode?.status == "Archived" || targetNode?.status == "Archived") {
+    console.warn("Drag blocked: inactive node involved");
+    return;
+  }
+const isValidMove = (dragged: OrgNode, target: OrgNode) => {
+  return hierarchyMatrix[target.nodeType]?.includes(dragged.nodeType);
+};
+
+if (!isValidMove(draggedNode!, targetNode!)) {
+  console.warn("Invalid hierarchy move");
+  return;
+}
+  setActiveItems((items) => {
+    const oldIndex = items.findIndex((i) => i.id === active.id);
+    const newIndex = items.findIndex((i) => i.id === over.id);
+    return arrayMove(items, oldIndex, newIndex);
+  });
+
+  // TODO: call move API
+};
 
   const isSearchActive = searchQuery.trim().length > 0;
   const isTypeFilterActive = filterType !== 'All';
@@ -135,8 +171,12 @@ export function FlatTree({ flatNodes, setNodes, onNodeClick, onDeleteNode, onDea
                 onToggle={() => toggleExpand(node.id)}
                 onClick={() => onNodeClick(node)}
                 onDelete={() => onDeleteNode(node)}
-                onDeactivate={() => onDeactivateNode(node)}
+                onDeactivate={() =>
+  onDeactivateNode(node, headcountMap[node.id] ?? 0)
+}
                 onActivate={() => onActivateNode(node)}
+                headcountMap={headcountMap}
+
               />
             );
           })}

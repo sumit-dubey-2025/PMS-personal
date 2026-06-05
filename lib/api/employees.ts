@@ -379,3 +379,32 @@ export async function findEmployeeByName(name: string): Promise<Employee | null>
     ) ?? null
   );
 }
+// Build Headcount Map from Employees API (NO backend change)
+export async function getHeadcountByNode(): Promise<Record<string, number>> {
+  try {
+    const res = await apiFetch('/employees'); // max allowed
+    const json = await safeJson(res);
+
+    if (!res.ok) {
+      throw new Error(json?.message ?? `Failed to fetch employees (${res.status})`);
+    }
+
+    const employees = json?.data ?? [];
+    console.log('Fetched employees for headcount:', employees);
+
+    const map: Record<string, number> = {};
+
+    for (const emp of employees) {
+      const nodeCode = emp?.department?.nodeCode || emp?.department?.id;
+
+      if (!nodeCode) continue;
+
+      map[nodeCode] = (map[nodeCode] || 0) + 1;
+    }
+
+    return map;
+  } catch (error) {
+    console.error('Error building headcount:', error);
+    return {};
+  }
+}
